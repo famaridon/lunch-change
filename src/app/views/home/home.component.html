@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Lunch change</span>
+    <div _ngcontent-c1="" class="flex-spacer"></div>
+    <button mat-icon-button routerLink="/lunches"><mat-icon>view_list</mat-icon></button>
+    <mat-divider [vertical]="true"></mat-divider>
+    <button mat-icon-button routerLink="/add-lunch"><mat-icon>add_box</mat-icon></button>
+    <mat-divider [vertical]="true"></mat-divider>
+    <img *ngIf="afAuth.authState | async as user;" class="avatar" [src]="user.photoURL" />
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

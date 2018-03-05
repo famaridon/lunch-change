@@ -16,9 +16,14 @@ import {AuthenticationComponent} from './views/authentication/authentication.com
 import {RouterModule, Routes} from '@angular/router';
 import {AuthenticationGuard} from './services/authentication-guard';
 import {LunchesComponent} from './views/lunches/lunches.component';
+import { HomeComponent } from './views/home/home.component';
+import { AddLunchComponent } from './views/add-lunch/add-lunch.component';
 
 const appRoutes: Routes = [
-  {path: '', component: LunchesComponent, canActivate: [AuthenticationGuard]},
+  {path: '', component: HomeComponent, canActivate: [AuthenticationGuard], children: [
+      {path: 'lunches', component: LunchesComponent},
+      {path: 'add-lunch', component: AddLunchComponent},
+    ]},
   {path: 'login', component: AuthenticationComponent}
 ];
 
@@ -27,7 +32,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AuthenticationComponent,
-    LunchesComponent
+    LunchesComponent,
+    HomeComponent,
+    AddLunchComponent
   ],
   imports: [
     RouterModule.forRoot(
