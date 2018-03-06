@@ -14,11 +14,8 @@ export class AuthenticationComponent implements OnInit {
   }
 
   loginGoogle() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.afAuth.authState.subscribe((value) => {
-      if (value) {
-        this.router.navigate(['/']);
-      }
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((user) => {
+      this.router.navigate(['/']);
     });
   }
 

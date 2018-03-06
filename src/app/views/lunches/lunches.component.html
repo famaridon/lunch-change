@@ -1,3 +1,6 @@
 <p>
   lunches
 </p>
+<ul>
+  <li *ngFor="let user of users| async as usersArray;" >{{user.email}}</li>
+</ul>

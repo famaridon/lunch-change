@@ -18,6 +18,8 @@ import {AuthenticationGuard} from './services/authentication-guard';
 import {LunchesComponent} from './views/lunches/lunches.component';
 import { HomeComponent } from './views/home/home.component';
 import { AddLunchComponent } from './views/add-lunch/add-lunch.component';
+import {UsersService} from './services/users.service';
+import {LunchesService} from './services/lunches.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthenticationGuard], children: [
@@ -49,7 +51,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [AuthenticationGuard],
+  providers: [AuthenticationGuard, UsersService, LunchesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
