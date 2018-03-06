@@ -26,6 +26,7 @@ export class AddLunchComponent implements OnInit {
 
   submit() {
     this.lunchesService.save(this.lunch);
+    this.lunch = new Lunch();
     this.router.navigate(['/']);
   }
 
