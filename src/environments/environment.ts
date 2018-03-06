@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyCg0EAIZLMGeuZpyLtchZLs7qE11RgkleU',
-    authDomain: 'lunch-change.firebaseapp.com',
-    databaseURL: 'https://lunch-change.firebaseio.com',
-    projectId: 'lunch-change',
-    storageBucket: 'lunch-change.appspot.com',
-    messagingSenderId: '830305816185'
+    apiKey: 'AIzaSyAWAcpfGlFtET-4qafEpk3sZK_KtQ0BsEw',
+    authDomain: 'lunch-change-45b17.firebaseapp.com',
+    databaseURL: 'https://lunch-change-45b17.firebaseio.com',
+    projectId: 'lunch-change-45b17',
+    storageBucket: '',
+    messagingSenderId: '742433379934'
   }
 };
