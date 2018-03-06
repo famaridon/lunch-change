@@ -12,6 +12,11 @@ export class LunchesService {
     return this.afs.collection<Lunch>(`lunches`).valueChanges();
   }
 
+  save(lunch: Lunch) {
+    const id = this.afs.createId();
+    this.afs.doc(`lunches/${id}`).set((Object.assign({}, lunch)));
+  }
+
 }
 
 export class Lunch {

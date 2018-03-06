@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LunchesService} from '../../services/lunches.service';
+import {Lunch, LunchesService} from '../../services/lunches.service';
+import {User, UsersService} from '../../services/users.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-lunch',
@@ -8,11 +10,27 @@ import {LunchesService} from '../../services/lunches.service';
 })
 export class AddLunchComponent implements OnInit {
 
+  // loggedOnUser: User;
+  lunch: Lunch;
 
 
-  constructor(protected lunchesService: LunchesService) { }
+  constructor(protected lunchesService: LunchesService, protected userService: UsersService, protected router: Router) { }
 
   ngOnInit() {
+    this.lunch = new Lunch();
+    // this.userService.findLoggedOn().subscribe((user) => {
+    //   this.loggedOnUser = user;
+    //   this.lunch.cooker = this.loggedOnUser;
+    // });
+  }
+
+  submit() {
+    this.lunchesService.save(this.lunch);
+    this.router.navigate(['/']);
+  }
+
+  cancel() {
+
   }
 
 }

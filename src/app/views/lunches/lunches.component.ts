@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFirestore} from 'angularfire2/firestore';
-import {User, UsersService} from '../../services/users.service';
 import {Observable} from 'rxjs/Observable';
+import {Lunch, LunchesService} from '../../services/lunches.service';
 
 @Component({
   selector: 'app-lunches',
@@ -10,12 +9,12 @@ import {Observable} from 'rxjs/Observable';
 })
 export class LunchesComponent implements OnInit {
 
-  public users: Observable<User[]>;
+  public lunchesObservable: Observable<Lunch[]>;
 
-  constructor(public usersService: UsersService) { }
+  constructor(public lunchesService: LunchesService) { }
 
   ngOnInit() {
-    this.users = this.usersService.findAll();
+    this.lunchesObservable = this.lunchesService.findAll();
   }
 
 }

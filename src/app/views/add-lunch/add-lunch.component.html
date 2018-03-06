@@ -1,6 +1,7 @@
-<mat-card>
-  <mat-card-header>
-    <h1>add-lunch works!</h1>
-  </mat-card-header>
-</mat-card>
-
+<div class="lunch-container">
+  <mat-form-field>
+    <textarea matInput [(ngModel)]="lunch.description" placeholder="Desciption"></textarea>
+  </mat-form-field>
+  <button mat-button (click)="submit()">Submit</button>
+  <button mat-button (click)="cancel()">Cancel</button>
+</div>

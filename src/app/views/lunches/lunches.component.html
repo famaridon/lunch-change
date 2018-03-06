@@ -1,6 +1,6 @@
 <p>
-  lunches
+  lunches :
 </p>
 <ul>
-  <li *ngFor="let user of users| async as usersArray;" >{{user.email}}</li>
+  <li *ngFor="let lunch of lunchesObservable| async as lunches;" >{{lunch.description}}</li>
 </ul>
