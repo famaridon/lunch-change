@@ -13,11 +13,11 @@ export class UsersService {
     return this.afs.collection<User>(`users`).valueChanges();
   }
 
-  findLoggedOn(): Observable<User> {
-    return this.afAuth.authState.map((u) => {
-      return this.afs.doc<User>(`users/${u.uid}` );
-    });
-  }
+  // findLoggedOn(): Observable<User> {
+  //   return this.afAuth.authState.map((u) => {
+  //     return this.afs.doc<User>(`users/${u.uid}` ).valueChanges();
+  //   });
+  // }
 
   update(uid: string, email: string, displayName: string, picture: string) {
     const user: User = new User();
