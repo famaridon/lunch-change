@@ -23,12 +23,11 @@ import {LunchesService} from './services/lunches.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthenticationGuard], children: [
-      {path: 'lunches', component: LunchesComponent},
+      {path: '', component: LunchesComponent},
       {path: 'add-lunch', component: AddLunchComponent},
     ]},
   {path: 'login', component: AuthenticationComponent}
 ];
-
 
 @NgModule({
   declarations: [

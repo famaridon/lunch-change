@@ -12,12 +12,24 @@ export class UsersService {
     return this.afs.collection<User>(`users`).valueChanges();
   }
 
+  update(uid: string, email: string, displayName: string, picture: string) {
+    const user: User = new User();
+    user.uid = uid;
+    user.email = email;
+    user.displayName = displayName;
+    user.picture = picture;
+    this.afs.doc<User>(`users/${uid}` ).set(Object.assign({}, user));
+  }
+
 }
 
 export class User {
   uid: string;
   email: string;
+  displayName: string;
+  picture: string;
   roles: Roles;
+
 }
 
 export class Roles {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LunchesService} from '../../services/lunches.service';
 
 @Component({
   selector: 'app-add-lunch',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddLunchComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(protected lunchesService: LunchesService) { }
 
   ngOnInit() {
   }
