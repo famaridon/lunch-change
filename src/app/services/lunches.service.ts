@@ -22,5 +22,6 @@ export class LunchesService {
 export class Lunch {
   cooker: string;
   title: string;
+  filePath: string;
   description: string;
 }

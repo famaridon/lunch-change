@@ -22,6 +22,10 @@ export class AddLunchComponent implements OnInit {
     this.reset();
   }
 
+  onImageUploaded(path: string) {
+    this.lunch.filePath = path;
+  }
+
   reset() {
     this.lunch = new Lunch();
     this.lunch.cooker = this.loggedOnUser.ref.id;
@@ -34,7 +38,8 @@ export class AddLunchComponent implements OnInit {
   }
 
   cancel() {
-
+    this.reset();
+    this.router.navigate(['/']);
   }
 
 }

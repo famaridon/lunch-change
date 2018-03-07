@@ -6,7 +6,7 @@
       </mat-form-field>
     </mat-card-title>
   </mat-card-header>
-  <app-file-upload></app-file-upload>
+  <app-image-upload (onUploadCompleted)="onImageUploaded($event);"></app-image-upload>
   <mat-card-content class="lunch-container">
     <mat-form-field>
       <textarea matInput rows="5" [(ngModel)]="lunch.description" placeholder="Desciption"></textarea>

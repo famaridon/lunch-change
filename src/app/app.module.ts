@@ -7,11 +7,6 @@ import {AppComponent} from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {AngularFireModule} from 'angularfire2';
-import {AngularFirestoreModule} from 'angularfire2/firestore';
-import {AngularFireStorageModule} from 'angularfire2/storage';
-import {AngularFireAuthModule} from 'angularfire2/auth';
-import {environment} from '../environments/environment';
 import {AngularMaterialModule} from './angular-material/angular-material.module';
 import {AuthenticationComponent} from './views/authentication/authentication.component';
 import {RouterModule, Routes} from '@angular/router';
@@ -44,7 +39,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: true}
+      {enableTracing: false}
     ),
     BrowserModule,
     FormsModule,
