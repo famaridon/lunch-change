@@ -1,5 +1,8 @@
 <div class="lunch-container">
   <mat-form-field>
+    <input matInput [(ngModel)]="lunch.title" placeholder="Title" />
+  </mat-form-field>
+  <mat-form-field>
     <textarea matInput [(ngModel)]="lunch.description" placeholder="Desciption"></textarea>
   </mat-form-field>
   <button mat-button (click)="submit()">Submit</button>

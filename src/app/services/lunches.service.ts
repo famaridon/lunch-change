@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore} from 'angularfire2/firestore';
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
 import {User} from './users.service';
 
@@ -8,8 +8,8 @@ export class LunchesService {
 
   constructor(public afs: AngularFirestore) { }
 
-  findAll(): Observable<Lunch[]> {
-    return this.afs.collection<Lunch>(`lunches`).valueChanges();
+  findAll(): AngularFirestoreCollection<Lunch> {
+    return this.afs.collection<Lunch>(`lunches`);
   }
 
   save(lunch: Lunch) {
@@ -20,6 +20,7 @@ export class LunchesService {
 }
 
 export class Lunch {
-  cooker: User;
+  cooker: string;
+  title: string;
   description: string;
 }

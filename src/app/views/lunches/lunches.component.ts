@@ -14,7 +14,7 @@ export class LunchesComponent implements OnInit {
   constructor(public lunchesService: LunchesService) { }
 
   ngOnInit() {
-    this.lunchesObservable = this.lunchesService.findAll();
+    this.lunchesObservable = this.lunchesService.findAll().valueChanges();
   }
 
 }

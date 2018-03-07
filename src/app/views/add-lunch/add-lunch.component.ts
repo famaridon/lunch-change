@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Lunch, LunchesService} from '../../services/lunches.service';
 import {User, UsersService} from '../../services/users.service';
 import {Router} from '@angular/router';
+import {AngularFirestoreDocument} from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-add-lunch',
@@ -10,23 +11,25 @@ import {Router} from '@angular/router';
 })
 export class AddLunchComponent implements OnInit {
 
-  // loggedOnUser: User;
+  loggedOnUser: AngularFirestoreDocument<User>;
   lunch: Lunch;
 
 
   constructor(protected lunchesService: LunchesService, protected userService: UsersService, protected router: Router) { }
 
   ngOnInit() {
+    this.loggedOnUser = this.userService.findLoggedOn();
+    this.reset();
+  }
+
+  reset() {
     this.lunch = new Lunch();
-    // this.userService.findLoggedOn().subscribe((user) => {
-    //   this.loggedOnUser = user;
-    //   this.lunch.cooker = this.loggedOnUser;
-    // });
+    this.lunch.cooker = this.loggedOnUser.ref.id;
   }
 
   submit() {
     this.lunchesService.save(this.lunch);
-    this.lunch = new Lunch();
+    this.reset();
     this.router.navigate(['/']);
   }
 
