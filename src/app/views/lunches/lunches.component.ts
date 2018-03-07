@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Lunch, LunchesService} from '../../services/lunches.service';
+import {AngularFireStorage} from 'angularfire2/storage';
 
 @Component({
   selector: 'app-lunches',

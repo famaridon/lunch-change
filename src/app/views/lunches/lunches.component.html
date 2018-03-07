@@ -1,7 +1,7 @@
 <mat-list>
   <mat-list-item *ngFor="let lunch of lunchesObservable| async as lunches;" >
-    <!--<img matListAvatar src="..." alt="...">-->
-    <h3 matLine> {{lunch.title}} </h3>
+    <app-storage-img [filePath]="lunch.filePath"></app-storage-img>
+    <h3 matLine> {{lunch.title}}</h3>
     <p matLine>
       <span> {{lunch.description}} </span>
     </p>

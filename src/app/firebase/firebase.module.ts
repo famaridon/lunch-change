@@ -8,6 +8,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {AngularMaterialModule} from '../angular-material/angular-material.module';
+import { StorageImgComponent } from './components/storage-img/storage-img.component';
 
 @NgModule({
   imports: [
@@ -24,9 +25,10 @@ import {AngularMaterialModule} from '../angular-material/angular-material.module
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    FileUploadComponent
+    FileUploadComponent,
+    StorageImgComponent
   ],
-  declarations: [FileUploadComponent]
+  declarations: [FileUploadComponent, StorageImgComponent]
 })
 export class FirebaseModule {
 }
