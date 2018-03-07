@@ -1,10 +1,19 @@
-<div class="lunch-container">
-  <mat-form-field>
-    <input matInput [(ngModel)]="lunch.title" placeholder="Title" />
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput [(ngModel)]="lunch.description" placeholder="Desciption"></textarea>
-  </mat-form-field>
-  <button mat-button (click)="submit()">Submit</button>
-  <button mat-button (click)="cancel()">Cancel</button>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <mat-form-field>
+        <input matInput [(ngModel)]="lunch.title" placeholder="Title"/>
+      </mat-form-field>
+    </mat-card-title>
+  </mat-card-header>
+  <app-file-upload></app-file-upload>
+  <mat-card-content class="lunch-container">
+    <mat-form-field>
+      <textarea matInput rows="5" [(ngModel)]="lunch.description" placeholder="Desciption"></textarea>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="submit()">Submit</button>
+    <button mat-button (click)="cancel()">Cancel</button>
+  </mat-card-actions>
+</mat-card>

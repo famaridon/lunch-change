@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
 
 import {AppComponent} from './app.component';
@@ -17,16 +17,19 @@ import {AuthenticationComponent} from './views/authentication/authentication.com
 import {RouterModule, Routes} from '@angular/router';
 import {AuthenticationGuard} from './services/authentication-guard';
 import {LunchesComponent} from './views/lunches/lunches.component';
-import { HomeComponent } from './views/home/home.component';
-import { AddLunchComponent } from './views/add-lunch/add-lunch.component';
+import {HomeComponent} from './views/home/home.component';
+import {AddLunchComponent} from './views/add-lunch/add-lunch.component';
 import {UsersService} from './services/users.service';
 import {LunchesService} from './services/lunches.service';
+import {FirebaseModule} from './firebase/firebase.module';
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthenticationGuard], children: [
+  {
+    path: '', component: HomeComponent, canActivate: [AuthenticationGuard], children: [
       {path: '', component: LunchesComponent},
       {path: 'add-lunch', component: AddLunchComponent},
-    ]},
+    ]
+  },
   {path: 'login', component: AuthenticationComponent}
 ];
 
@@ -47,10 +50,7 @@ const appRoutes: Routes = [
     FormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    FirebaseModule
   ],
   providers: [AuthenticationGuard, UsersService, LunchesService],
   bootstrap: [AppComponent]
